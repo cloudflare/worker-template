@@ -1,4 +1,4 @@
-const DEBUG = true
+const DEBUG = false
 
 addEventListener('fetch', event => {
   try {
