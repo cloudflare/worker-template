@@ -1,5 +1,18 @@
+const DEBUG = false
+
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
+  try {
+    event.respondWith(handleRequest(event))
+  } catch (e) {
+    if (DEBUG) {
+      return event.respondWith(
+        new Response(e.message || e.toString(), {
+          status: 500,
+        }),
+      )
+    }
+    event.respondWith(new Response('Internal Error', { status: 500 }))
+  }
 })
 /**
  * Respond with hello worker text
