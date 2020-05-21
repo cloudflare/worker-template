@@ -1,16 +1,23 @@
 {
-  "private": true,
-  "name": "{{ project-name }}",
   "version": "1.0.0",
   "description": "A template for kick starting a Cloudflare Workers project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "format": "eslint --fix *.js"
   },
   "author": "{{ authors }}",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^2.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format",
+      "pre-push": "npm run format"
+    }
   }
 }
