@@ -11,6 +11,6 @@
   "author": "{{ authors }}",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^2.2.1"
   }
 }
